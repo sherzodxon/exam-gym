@@ -1,0 +1,38 @@
+@use "../variables" as *;
+
+// Tasdiqlash oynasi (test tugatishdan oldin)
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: $space-4;
+  background: rgba(10, 12, 20, 0.55);
+
+  &__dialog {
+    width: 100%;
+    max-width: 420px;
+    padding: $space-5;
+    border-radius: $radius-lg;
+    background: var(--color-surface);
+    box-shadow: var(--shadow);
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: $space-2;
+  }
+
+  &__text {
+    color: var(--color-text-muted);
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3;
+    margin-top: $space-5;
+  }
+}

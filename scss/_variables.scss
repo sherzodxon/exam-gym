@@ -1,0 +1,78 @@
+// =============================================================
+//  O‘zgaruvchilar: ranglar CSS custom property orqali (yorug‘/qorong‘i rejim),
+//  o‘lchamlar va breakpointlar esa SCSS o‘zgaruvchilari.
+// =============================================================
+
+$font-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 20px;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+
+$container: 860px;
+$bp-sm: 560px;
+$bp-md: 760px;
+
+$transition: 0.18s ease;
+
+@mixin respond($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+// Mavzu ranglari
+@mixin theme-light {
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef1f8;
+  --color-border: #dde2ee;
+  --color-text: #1b2033;
+  --color-text-muted: #5d6680;
+  --color-primary: #3b5bdb;
+  --color-primary-hover: #2f4bc2;
+  --color-primary-soft: #e7ecff;
+  --color-on-primary: #ffffff;
+  --color-success: #2b8a3e;
+  --color-success-soft: #e6f6ea;
+  --color-danger: #c92a2a;
+  --color-danger-soft: #fdecec;
+  --color-warning: #b06a00;
+  --color-warning-soft: #fff4dc;
+  --color-focus: #91a7ff;
+  --shadow: 0 6px 24px rgba(27, 32, 51, 0.08);
+}
+
+@mixin theme-dark {
+  --color-bg: #11131b;
+  --color-surface: #1a1d29;
+  --color-surface-2: #232737;
+  --color-border: #2f3446;
+  --color-text: #e8eaf2;
+  --color-text-muted: #a0a7bd;
+  --color-primary: #7c93ff;
+  --color-primary-hover: #95a8ff;
+  --color-primary-soft: #262d4d;
+  --color-on-primary: #0f1220;
+  --color-success: #69db7c;
+  --color-success-soft: #1d3324;
+  --color-danger: #ff8787;
+  --color-danger-soft: #3a1f22;
+  --color-warning: #ffc75a;
+  --color-warning-soft: #3a2f17;
+  --color-focus: #5c7cfa;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}

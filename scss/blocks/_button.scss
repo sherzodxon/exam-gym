@@ -1,0 +1,54 @@
+@use "../variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  min-height: 46px;
+  padding: $space-2 $space-5;
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  background: var(--color-surface-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background $transition, border-color $transition, transform $transition;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-primary);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-on-primary);
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary-hover);
+    }
+  }
+
+  &--danger {
+    color: var(--color-danger);
+  }
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--small {
+    min-height: 36px;
+    padding: $space-1 $space-3;
+    font-size: 14px;
+    border-radius: $radius-sm;
+  }
+}

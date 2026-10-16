@@ -1,0 +1,11 @@
+// Informatika imtihon trenajyori — asosiy SCSS fayl.
+// Kompilyatsiya: npm run build:css  (yoki npm run watch:css)
+// Sinflar BEM metodologiyasi bo‘yicha nomlangan: .block__element--modifier
+
+@use "base";
+@use "blocks/page";
+@use "blocks/button";
+@use "blocks/setup";
+@use "blocks/quiz";
+@use "blocks/result";
+@use "blocks/modal";

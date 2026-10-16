@@ -1,0 +1,300 @@
+@use "../variables" as *;
+
+// Natija ekrani
+.result {
+  &__hero {
+    display: grid;
+    gap: $space-5;
+    align-items: center;
+
+    @include respond($bp-sm) {
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__ring {
+    --percent: 0;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: conic-gradient(var(--ring-color, var(--color-primary)) calc(var(--percent) * 1%), var(--color-surface-2) 0);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background: var(--color-surface);
+    }
+
+    &--good {
+      --ring-color: var(--color-success);
+    }
+
+    &--mid {
+      --ring-color: var(--color-warning);
+    }
+
+    &--bad {
+      --ring-color: var(--color-danger);
+    }
+  }
+
+  &__ring-value {
+    position: relative;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  &__score {
+    display: block;
+    font-size: 34px;
+    font-weight: 800;
+  }
+
+  &__score-max {
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+
+  &__headline {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: $space-2;
+  }
+
+  &__summary {
+    color: var(--color-text-muted);
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-3;
+    margin-top: $space-5;
+
+    @include respond($bp-md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__stat {
+    padding: $space-3;
+    border-radius: $radius-md;
+    background: var(--color-surface-2);
+  }
+
+  &__stat-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  &__stat-label {
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
+  &__actions {
+    display: grid;
+    gap: $space-3;
+    margin-top: $space-5;
+
+    @include respond($bp-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Mavzular bo‘yicha natija
+.topics {
+  &__list {
+    margin: $space-4 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: $space-1 $space-3;
+    padding: $space-3 0;
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__name {
+    font-size: 15px;
+  }
+
+  &__value {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  &__bar {
+    grid-column: 1 / -1;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-surface-2);
+    overflow: hidden;
+  }
+
+  &__bar-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--color-success);
+
+    &--low {
+      background: var(--color-danger);
+    }
+
+    &--mid {
+      background: var(--color-warning);
+    }
+  }
+}
+
+// Javoblar tahlili
+.review {
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+  }
+
+  &__filters {
+    display: inline-flex;
+    padding: $space-1;
+    border-radius: $radius-md;
+    background: var(--color-surface-2);
+  }
+
+  &__filter {
+    padding: $space-1 $space-3;
+    border: 0;
+    border-radius: $radius-sm;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+
+    &--active {
+      background: var(--color-surface);
+      color: var(--color-text);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: $space-4;
+    margin: $space-4 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__empty {
+    margin-top: $space-4;
+    color: var(--color-text-muted);
+  }
+}
+
+.review-item {
+  padding: $space-4;
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-success);
+  border-radius: $radius-md;
+  background: var(--color-surface);
+
+  &--wrong {
+    border-left-color: var(--color-danger);
+  }
+
+  &--skipped {
+    border-left-color: var(--color-warning);
+  }
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-2;
+    margin-bottom: $space-2;
+  }
+
+  &__number {
+    font-weight: 800;
+  }
+
+  &__status {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-success);
+
+    &--wrong {
+      color: var(--color-danger);
+    }
+
+    &--skipped {
+      color: var(--color-warning);
+    }
+  }
+
+  &__question {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  &__answers {
+    display: grid;
+    gap: $space-2;
+    margin-top: $space-3;
+  }
+
+  &__answer {
+    padding: $space-2 $space-3;
+    border-radius: $radius-sm;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+
+    &--user {
+      background: var(--color-danger-soft);
+    }
+
+    &--correct {
+      background: var(--color-success-soft);
+    }
+  }
+
+  &__answer-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+  }
+
+  &__explain {
+    margin-top: $space-3;
+    font-size: 14px;
+    color: var(--color-text-muted);
+  }
+
+  &__topic {
+    margin-top: $space-2;
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+}
