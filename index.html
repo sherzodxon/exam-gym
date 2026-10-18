@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Informatika imtihon trenajyori</title>
-  <meta name="description" content="8–9-sinf Informatika va axborot texnologiyalari darsliklari bo‘yicha imtihonga tayyorlanish testi">
+  <meta name="description" content="7–9-sinf Informatika darsliklari bo‘yicha imtihonga tayyorlanish testi">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
         <span class="header__logo" aria-hidden="true">IT</span>
         <div>
           <p class="header__title">Informatika imtihon trenajyori</p>
-          <p class="header__subtitle">8–9-sinf darsliklari asosida</p>
+          <p class="header__subtitle">7–9-sinf darsliklari asosida</p>
         </div>
       </div>
       <button class="header__theme" type="button" id="theme-toggle" aria-label="Yorug‘/qorong‘i rejim">◐</button>
@@ -54,8 +54,15 @@
               <label class="setup__choice">
                 <input class="setup__radio" type="radio" name="grade" value="all" checked>
                 <span class="setup__choice-box">
-                  <span class="setup__choice-title">8 + 9-sinf</span>
+                  <span class="setup__choice-title">Barcha sinflar</span>
                   <span class="setup__choice-meta" data-count="all"></span>
+                </span>
+              </label>
+              <label class="setup__choice">
+                <input class="setup__radio" type="radio" name="grade" value="7">
+                <span class="setup__choice-box">
+                  <span class="setup__choice-title">Faqat 7-sinf</span>
+                  <span class="setup__choice-meta" data-count="7"></span>
                 </span>
               </label>
               <label class="setup__choice">
@@ -210,6 +217,7 @@
     </div>
   </div>
 
+  <script src="js/questions-7.js"></script>
   <script src="js/questions-8.js"></script>
   <script src="js/questions-9.js"></script>
   <script src="js/app.js"></script>

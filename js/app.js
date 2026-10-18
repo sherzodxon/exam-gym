@@ -151,7 +151,7 @@
 
   function renderSetup() {
     var topics = {};
-    var counts = { all: BANK.length, 8: 0, 9: 0 };
+    var counts = { all: BANK.length, 7: 0, 8: 0, 9: 0 };
     BANK.forEach(function (q) {
       topics[topicKey(q)] = true;
       counts[q.g] += 1;
@@ -178,7 +178,7 @@
     history.slice(0, 8).forEach(function (h) {
       var item = el("li", "history__item");
       var date = new Date(h.date);
-      var label = (h.grade === "all" ? "8+9-sinf" : h.grade + "-sinf") + (h.retry ? " · xatolar ustida ish" : "");
+      var label = (h.grade === "all" ? "Barcha sinflar" : h.grade + "-sinf") + (h.retry ? " · xatolar ustida ish" : "");
       item.appendChild(el("span", "history__date", date.toLocaleDateString("uz-UZ") + " " +
         date.toLocaleTimeString("uz-UZ", { hour: "2-digit", minute: "2-digit" }) + " — " + label));
       item.appendChild(el("span", "history__score", h.score + " / " + h.total + " (" + h.percent + "%)"));
