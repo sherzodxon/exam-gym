@@ -74,6 +74,11 @@
     return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
   }
 
+  // 10-sinf kaliti 10–11-sinf darsligini bildiradi
+  function gradeLabel(g) {
+    return String(g) === "10" ? "10–11-sinf" : g + "-sinf";
+  }
+
   function gradeFromPercent(p) {
     if (p >= 86) return 5;
     if (p >= 71) return 4;
@@ -151,7 +156,7 @@
 
   function renderSetup() {
     var topics = {};
-    var counts = { all: BANK.length, 7: 0, 8: 0, 9: 0 };
+    var counts = { all: BANK.length, 7: 0, 8: 0, 9: 0, 10: 0 };
     BANK.forEach(function (q) {
       topics[topicKey(q)] = true;
       counts[q.g] += 1;
@@ -178,7 +183,7 @@
     history.slice(0, 8).forEach(function (h) {
       var item = el("li", "history__item");
       var date = new Date(h.date);
-      var label = (h.grade === "all" ? "Barcha sinflar" : h.grade + "-sinf") + (h.retry ? " · xatolar ustida ish" : "");
+      var label = (h.grade === "all" ? "Barcha sinflar" : gradeLabel(h.grade)) + (h.retry ? " · xatolar ustida ish" : "");
       item.appendChild(el("span", "history__date", date.toLocaleDateString("uz-UZ") + " " +
         date.toLocaleTimeString("uz-UZ", { hour: "2-digit", minute: "2-digit" }) + " — " + label));
       item.appendChild(el("span", "history__score", h.score + " / " + h.total + " (" + h.percent + "%)"));
@@ -227,7 +232,7 @@
 
     var meta = $("question-meta");
     meta.textContent = "";
-    meta.appendChild(el("span", "tag", q.g + "-sinf"));
+    meta.appendChild(el("span", "tag", gradeLabel(q.g)));
     meta.appendChild(el("span", "tag", q.m));
     meta.appendChild(el("span", "tag tag--" + (q.l === 2 ? "hard" : "medium"), levelLabel(q.l)));
 
@@ -429,7 +434,7 @@
     var groups = {};
     var order = [];
     results.forEach(function (r) {
-      var key = r.q.g + "-sinf · " + r.q.m;
+      var key = gradeLabel(r.q.g) + " · " + r.q.m;
       if (!groups[key]) {
         groups[key] = { correct: 0, total: 0 };
         order.push(key);
@@ -504,7 +509,7 @@
       item.appendChild(answers);
 
       item.appendChild(el("p", "review-item__explain", "💡 " + r.q.e));
-      item.appendChild(el("p", "review-item__topic", r.q.g + "-sinf · " + r.q.m + " · " + r.q.t));
+      item.appendChild(el("p", "review-item__topic", gradeLabel(r.q.g) + " · " + r.q.m + " · " + r.q.t));
 
       list.appendChild(item);
     });
