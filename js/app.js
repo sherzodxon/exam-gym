@@ -156,7 +156,7 @@
 
   function renderSetup() {
     var topics = {};
-    var counts = { all: BANK.length, 7: 0, 8: 0, 9: 0, 10: 0 };
+    var counts = { all: BANK.length, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0 };
     BANK.forEach(function (q) {
       topics[topicKey(q)] = true;
       counts[q.g] += 1;
